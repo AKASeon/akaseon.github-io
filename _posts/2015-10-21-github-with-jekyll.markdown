@@ -5,13 +5,17 @@ date:   2015-10-21
 categories: jekyll update
 ---
 # Install Jekyll
+
 ## For Ubuntu
+
 ### Jekyll 설치 준비
 필요 패키지 설치
 ```
 $ sudo apt-get install ruby ruby-dev make gcc nodejs
 ```
+
 ### Jekyll 패키지 설치
+
 > gem : ruby 라이브러리 패키지 인스톨 도구  
 >> gem guide 문서
 >> [RubyGems-Guide][1]
@@ -30,6 +34,7 @@ $ sudo gem install jekyll --no-rdoc --nori
 coming soon...
 
 ## jekyll with Github
+
 ### Repository 생성
 jekyll page 용으로 사용할 repository를 github 에 생성 한다.
 생성할 repository 를 local 로 git clone 명령어를 통하여 내려 받는다.
@@ -38,12 +43,14 @@ $ git clone [repository 주소]
 ex )
 $ git clone https://github.com/AKASeon/memo.git
 ```
+
 ### Repository checkout
 
 page 작업 하기 위하여 gh-pages 로 checkout 한다.
 ```
 $ git checkout --orphan gh-pages
 ```
+
 ### jekyll Web page 생성
 
 jekyll web page 를 생성한다.
@@ -67,6 +74,7 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 ```
+
 ### github push
 
 github 에 commit 하기 위하여 수정한 모든 파일을 추가, coommit 및 github 에 push 를 수행한다.
