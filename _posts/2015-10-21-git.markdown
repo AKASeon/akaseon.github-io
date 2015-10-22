@@ -1,0 +1,120 @@
+---
+layout: post
+title:  "git 사용하기"
+date:   2015-10-22
+categories: jekyll update
+---
+
+# git
+git 는 분산 버젼 관리 시스템이다.  
+데이터를 파일 시스템 스냅샷으로 취급하고 크기가 아주 작다.  
+파일이 달라지지 않았으면 파일을 새로 저장하지 않는다.  
+단지 이전 상태 파일에 대한 링크만 저장한다.
+
+git 가 하는 일은 기본적으로 아래와 같다.  
+1. 워킹 디렉토리에서 파일을 수정한다.  
+2. Staging Area 에 파일을 Stage 해서 Commit 할 스냅샷을 만든다.  
+3. Staging Area 에 있는 파일들을 커밋해서 git 디렉토리에 영구적인 스냅샷을 저장한다.
+
+## File life cycle
+File 은 Tracked 와 Untracked 로 나뉜다.  
+Tracked  는 이미 스냅샷에 포함되 있던 파일이다.  
+Tracked 파일은 또 Unmodified 와 Modified 그리고 Staged 로 나뉜다.  
+Staged 는 Commit 으로 저장소에 기록될수 있는 파일이다.  
+위에 설명하지 않은 모든 파일은 Untraced 파일이다.  
+
+처음 저장소를  Clone 를 하면 모든 파일은 Tracked 이면서 Unmodified 상태 이다.
+
+### Staging Area
+Commit 명령어 수행시 local 저장소에 Commit 되는 파일들이 위치한 영역이다.
+
+## Command
+
+### init
+기존 디렉토리를 git 으로 관리 하고 싶을때 사용
+
+```
+$ git init
+```
+명령서 수행시 .git 디렉토리를 생성하고 이 안에 git 저장소에 필요한 파일들을 생성한다.
+
+### clone
+git 원격 저장소로 부터 Local Directory 로 복사
+
+```
+$ git clone [저장소 url]
+```
+
+### status
+Local 저장소에 있는 파일들의 상태 확인
+
+```
+$ git status
+$ git status -s
+```
+
+### add
+파일을 추가 한다.
+파일은 Modified 나 Untracked 상태에서 Staged 상태로 이동한다.
+
+
+```
+$ git add [특정 파일]
+```
+
+### commit
+Staging Area 에 있는 파일들의 변경사항을 저장소에 Commit 한다.
+그리고 Commit Message 를 입력 할수 있다.
+
+```
+$ git commit -m 'Commit 메시지'
+```
+
+-a 옵션으로 파일을 Staging Area 에 넣지 않고 Commit 을 할 수 있다.
+```
+$ git commit -a -m 'Commit 메시지'
+```
+
+### push
+push 명령어를 통하여 Local 저장소에서 변경된 사항을 리모트 저장소에 merge 를 한다.
+이때 Local 저장소에서 생성하였던 Commit 메시지도 같이 Merge 된다.
+이는 Push가 완료 되면 Local 저장소에서 생성한 Commit Log 들을 리모트 저장소에서도 확인할 수 있다.
+물론 데이터도 변경 되어 있다.
+
+```
+$ git push origin master
+```
+
+### pull
+pull 명령어를 통하여 리모트 저장소에서 변경된 사항을 Local 저장소에 merge 를 한다.
+push 와 반대 개념이다.
+
+```
+$ git pull
+```
+
+### branch
+local 저장소 에 브랜치를 생성한다.
+
+```
+$ git branch [branch 명]
+```
+
+### checkout
+local 저장소에 있는 브랜치를 변경 한다.
+
+```
+$ git checkout [branch 명]
+```
+
+### merge
+local 저장소에 생성한 브랜치간 merge 를 수행한다.
+
+```
+$ git merge [branch 명]
+```
+
+# 참조
+https://rogerdudler.github.io/git-guide/index.ko.html  
+https://git-scm.com/  
+https://git-scm.com/book/ko/v2
