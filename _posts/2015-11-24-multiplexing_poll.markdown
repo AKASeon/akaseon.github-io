@@ -73,8 +73,8 @@ void setObserveEvent( pollfd *  aPollfd,
                       int       aFd,
                       Short     aEvent )
 {
-    aPollfd.fd = aFD;
-    aPollfd.events = aEvent;
+    aPollfd->fd = aFD;
+    aPollfd->events = aEvent;
 }
 ```
 
